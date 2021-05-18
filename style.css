@@ -1,0 +1,17 @@
+.intro,
+form {
+  padding: 2rem 0 0 2rem;
+}
+
+.add-task,
+.delete-task,
+.task-done,
+.task-list,
+.exit-message {
+  display: none;
+}
+
+.task-list {
+  padding: 2rem 0 0 5rem;
+  font-size: 1.2rem;
+}
