@@ -10,8 +10,7 @@ const taskManager = () => {
   } else if (action == 1 && allTasks.length !== 0) {
     removeEl(alert);
     removeEl(alertDeleteEl);
-    const list = document.querySelector('.task-list');
-    list.style.setProperty('display', 'block');
+    displayEl('.display-tasks');
   } else if (action == 2) {
     removeEl(alert);
     removeEl(alertDeleteEl);
@@ -68,7 +67,9 @@ const addTask = () => {
   let singleTask = document.getElementById('task').value;
   allTasks.push(singleTask);
   const list = document.querySelector('.task-list');
+  const displayTasks = document.querySelector('.display-tasks');
   list.style.setProperty('display', 'block');
+  displayTasks.style.setProperty('display', 'block');
   const item = document.createElement('li');
   localStorage.setItem('task', `${singleTask}`);
   item.innerText = `${localStorage.getItem('task')}`;
