@@ -2,62 +2,60 @@ let allTasks = [];
 
 const taskManager = () => {
   let action = document.querySelector('#action').value;
-  let alert = document.querySelector('.alert');
-  let alertDeleteEl = document.querySelector('.alert-delete');
+  let alertOne = document.querySelector('.alertOne');
+  let alertOneDeleteEl = document.querySelector('.alertOne-delete');
 
   if (action == 1 && allTasks.length === 0) {
-    createAlert();
+    createAlertOne();
   } else if (action == 1 && allTasks.length !== 0) {
-    removeEl(alert);
-    removeEl(alertDeleteEl);
+    removeEl(alertOne);
+    removeEl(alertOneDeleteEl);
     displayEl('.display-tasks');
   } else if (action == 2) {
-    removeEl(alert);
-    removeEl(alertDeleteEl);
+    removeEl(alertOne);
+    removeEl(alertOneDeleteEl);
     displayEl('.add-task');
   } else if (action == 3) {
-    removeEl(alert);
+    removeEl(alertOne);
     if (allTasks.length !== 0) {
       displayEl('.delete-task');
     } else {
-      alertDelete();
+      alertOneDelete();
     }
   } else if (action == 4) {
-    removeEl(alert);
-    removeEl(alertDeleteEl);
+    removeEl(alertOne);
+    removeEl(alertOneDeleteEl);
     displayEl('.task-done');
-  } else {
-    removeEl(alert);
-    removeEl(alertDeleteEl);
+  } else if (action == 5) {
+    removeEl(alertOne);
+    removeEl(alertOneDeleteEl);
     exitProgram();
+  } else {
+    removeEl(alertOne);
+    removeEl(alertOneDeleteEl);
+    alert('You must type values between 1 and 5, to choose the options of the Task Manager');
   }
   reset('#action');
 };
 
-const reset = (el) => {
-  document.querySelector(el).value = '';
-};
+const reset = (el) => (document.querySelector(el).value = '');
 
-const displayEl = (el) => {
-  document.querySelector(el).style.setProperty('display', 'block');
-};
+const displayEl = (el) => document.querySelector(el).style.setProperty('display', 'block');
 
-const removeEl = (el) => {
-  el && el.remove();
-};
+const removeEl = (el) => el && el.remove();
 
-const createAlert = () => {
+const createAlertOne = () => {
   const p = document.createElement('p');
-  p.className = 'alert';
+  p.className = 'alertOne';
   p.innerText = 'Add one or more task to display the task list...';
   p.style.setProperty('color', 'red');
   const enterNumberForm = document.querySelector('.enter-number');
   enterNumberForm.append(p);
 };
-const alertDelete = () => {
+const alertOneDelete = () => {
   const p = document.createElement('p');
-  p.className = 'alert-delete';
-  p.innerText = 'You must have created tasks to delete one of them';
+  p.className = 'alertOne-delete';
+  p.innerText = 'You must have created tasks to delete one of them.';
   p.style.setProperty('color', 'red');
   const enterNumberForm = document.querySelector('.enter-number');
   enterNumberForm.append(p);
