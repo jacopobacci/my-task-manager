@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="exit-message" style="display: none">You quit the program, refresh the page to restart</h1>
+
+    <main class="task-manager">
+      <div class="intro" style="padding: 2rem">
+        <h1>Hello! Welcome to your task manager!</h1>
+        <h3>Please choose your action:</h3>
+        <ol>
+          <li>to see all your tasks</li>
+          <li>to add a task</li>
+          <li>to delete a task</li>
+          <li>to mark a task as done</li>
+          <li>to exit the task manager</li>
+        </ol>
+      </div>
+
+      <form style="padding: 2rem" class="enter-number">
+        Enter your action's number here <input type="text" name="text" id="action" />
+        <button type="button" onclick="taskManager()">Submit</button>
+      </form>
+      <form style="padding: 2rem; display: none" class="add-task">
+        Type the task text <input type="text" name="text" id="task" />
+        <button type="button" onclick="addTask()">Submit</button>
+      </form>
+      <form style="padding: 2rem; display: none" class="delete-task">
+        Which #task do you want to delete? <input type="text" name="text" id="delete" />
+        <button type="button" onclick="deleteTask()">Submit</button>
+      </form>
+      <form style="padding: 2rem; display: none" class="task-done">
+        Which #task do you want to mark as done?<input type="text" name="text" id="done" />
+        <button type="button" onclick="taskDone()">Submit</button>
+      </form>
+      <ol class="task-list" style="padding-left: 3rem; display: none"></ol>
+      <script src="app.js"></script>
+    </main>
+  </body>
+</html>
